@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<section id="student-list"></section>
+<script type="text/javascript">
+	fetch("http://localhost:3000/student-list")
+	.then((res)=>{
+		return res.json()
+	})
+	.then((updatedjson)=>{
+		console.log(updatedjson)
+		show(updatedjson)
+	})
+	function show(student){
+		for(var i=0;i<student.length;i++){
+		document.getElementById("student-list").innerHTML+=
+		`
+		<div>
+		<p>${student[i].stdname}</p>
+		</div>
+
+		`
+		}
+	}
+</script>
+</body>
+</html>
